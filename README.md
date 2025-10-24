@@ -29,7 +29,7 @@ cd rag_sentiment_analysis
 
 ```powershell
 python -m venv venv
-.\.\venv\Scripts\Activate.ps1
+.\venv\Scripts\Activate
 ```
 
 3. Install dependencies
