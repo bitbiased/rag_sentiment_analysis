@@ -2,10 +2,6 @@
 
 Lightweight Flask REST API that analyzes customer reviews for sentiment, stores review text + sentiment + vector embeddings in SQLite, and answers user questions about the stored reviews using Retrieval-Augmented Generation (RAG).
 
-Badges (optional)
-: [![PyPI version](https://img.shields.io/pypi/v/flask.svg)]() 
-
-
 ## Features
 - POST `/add-review` — analyze sentiment, generate embedding, store review in SQLite.
 - POST `/ask-question` — embed the question, retrieve top-K relevant reviews using cosine similarity, and synthesize an answer using a generative model constrained to the retrieved context.
