@@ -80,29 +80,8 @@ curl -X POST http://127.0.0.1:5000/ask-question \
 
 Response contains a synthesized `answer` and `relevant_reviews_found`.
 
-## Configuration & provider notes
+## Configuration 
 - The repository currently includes code that targets Google Gemini (`google-generativeai`) by default. If you see 404s or empty responses:
   - Ensure `GEMINI_API_KEY` is set in `.env` and matches the client used in the code.
-  - If you prefer OpenAI, switch to `OPENAI_API_KEY` and the OpenAI client; I can convert the code for you.
 
-## Troubleshooting
-- Import unresolved in VS Code: ensure the workspace interpreter points to `venv\Scripts\python.exe` and that dependencies are installed in that venv. We added a `.vscode/settings.json` to this repo to pin the interpreter.
-- 404 or empty generation results: usually indicates a provider/endpoint mismatch (e.g., using OpenAI client against Google's endpoint). Confirm which provider your API key is for and update the client accordingly.
-- If `NoneType`/`.strip()` errors appear, check the server logs — the code now prints raw responses when the model returns unexpected shapes.
 
-## Where to get help
-- Open an issue in this repository.
-- For reproducible bugs, include: `python --version`, `pip freeze` output, your `.env` (redact secrets), and a curl request that reproduces the issue.
-
-## Contributing
-- Contributions welcome. Please open issues or pull requests. See `CONTRIBUTING.md` (if present) for details.
-
-## Maintainers
-- Repository owner: `bitbiased` (see repository settings for contact)
-
----
-
-If you'd like I can also:
-- convert the repo to use OpenAI instead of Gemini,
-- add small integration tests for the endpoints,
-- or add a `Makefile` / `invoke` tasks to simplify running common commands.
