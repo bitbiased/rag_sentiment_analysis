@@ -84,4 +84,31 @@ Response contains a synthesized `answer` and `relevant_reviews_found`.
 - The repository currently includes code that targets Google Gemini (`google-generativeai`) by default. If you see 404s or empty responses:
   - Ensure `GEMINI_API_KEY` is set in `.env` and matches the client used in the code.
 
+## Docker
+
+This project includes a `Dockerfile` and `docker-compose.yml` for local development.
+
+Build the image:
+
+```bash
+docker build -t rag-sentiment-analysis:local .
+```
+
+Run the container (port 5000 exposed):
+
+```bash
+docker run --rm -p 5000:5000 --env-file .env rag-sentiment-analysis:local
+```
+
+Or use docker-compose (recommended for local dev). This maps a host file for the SQLite DB so data persists across restarts:
+
+```bash
+docker compose up --build
+```
+
+Notes:
+- The container runs `python app.py` directly. Ensure your `.env` file contains the correct API key (e.g. `GEMINI_API_KEY` or `OPENAI_API_KEY` depending on the code you use).
+- If you want to persist the database on the host, the provided `docker-compose.yml` maps `./data/reviews.db` to `/app/reviews.db` inside the container.
+
+
 
