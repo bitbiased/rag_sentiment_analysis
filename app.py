@@ -118,5 +118,4 @@ def ask_question():
 if __name__ == '__main__':
     with app.app_context():
         db.create_all() # Create the database and tables
-    # Bind to 0.0.0.0 so the app is accessible from the Docker host/container mapping
     app.run(host="0.0.0.0", port=5000,debug=True)
