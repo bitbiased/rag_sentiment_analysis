@@ -81,7 +81,7 @@ def ask_question():
     
     similarities = cosine_similarity(question_embedding_np, review_embeddings) # Using cosine similarity to find the 'distance' between the question and each review
 
-   
+  
     top_k = min(3, len(all_reviews)) # Getting top 3, or less reviews
     top_indices = similarities[0].argsort()[-top_k:][::-1]
     
